@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phalcon Tutorial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <?php echo $this->getContent(); ?>
+</div>
+</body>
+</html>
+<h2>Sign up using this form</h2>
+
+<?php echo $this->tag->form("signup/register"); ?>
+
+<div class="form-group">
+    <label for="name">Name</label>
+    <?php echo $this->tag->textField(["name", "class" => "form-control", "placeholder" => "Name"]); ?>
+</div>
+
+<div class="form-group">
+    <label for="email">E-Mail</label>
+    <?php echo $this->tag->emailField(["email", "class" => "form-control", "placeholder" => "Email"]); ?>
+</div>
+
+<div class="form-group">
+    <?php echo $this->tag->submitButton(["Register", "class" => "btn btn-primary"]); ?>
+</div>
+
+</form>
