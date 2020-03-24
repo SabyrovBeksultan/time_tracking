@@ -1,5 +1,8 @@
 <?php
 
+use Phalcon\Flash\Direct as FlashDirect;
+use Phalcon\Flash\Session as FlashSession;
+
 error_reporting(E_ALL);
 
 try {
@@ -23,6 +26,39 @@ try {
      * Handle the request
      */
     $application = new \Phalcon\Mvc\Application($di);
+
+    // Register the flash service with custom CSS classes
+    $di->set(
+        'flash',
+        function () {
+            $flash = new FlashDirect(
+                [
+                    'error'   => 'alert alert-danger',
+                    'success' => 'alert alert-success',
+                    'notice'  => 'alert alert-info',
+                    'warning' => 'alert alert-warning',
+                ]
+            );
+
+            return $flash;
+        }
+    );
+
+    $di->set(
+        'flashSession',
+        function () {
+            $flash = new FlashSession(
+                [
+                    'error'   => 'alert alert-danger',
+                    'success' => 'alert alert-success',
+                    'notice'  => 'alert alert-info',
+                    'warning' => 'alert alert-warning',
+                ]
+            );
+
+            return $flash;
+        }
+    );
 
     echo $application->handle()->getContent();
 
