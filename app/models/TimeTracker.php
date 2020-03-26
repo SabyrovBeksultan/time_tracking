@@ -1,6 +1,6 @@
 <?php
 
-class Users extends \Phalcon\Mvc\Model
+class TimeTracker extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -13,19 +13,19 @@ class Users extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    public $name;
+    public $date_start;
 
     /**
      *
      * @var string
      */
-    public $last_name;
+    public $date_stop;
 
     /**
      *
      * @var integer
      */
-    public $status_active;
+    public $user_id;
 
     /**
      * Independent Column Mapping.
@@ -34,9 +34,9 @@ class Users extends \Phalcon\Mvc\Model
     {
         return array(
             'id' => 'id', 
-            'name' => 'name', 
-            'last_name' => 'last_name', 
-            'status_active' => 'status_active'
+            'date_start' => 'date_start', 
+            'date_stop' => 'date_stop', 
+            'user_id' => 'user_id'
         );
     }
 
